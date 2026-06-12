@@ -27,8 +27,9 @@ jobs:
         languages: cpp
         queries: security-extended,security-and-quality
 
-    - name: Autobuild
-      uses: github/codeql-action/autobuild@v3
+    - name: Compile Code
+      run: |
+        g++ main.cpp -o test_build
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
