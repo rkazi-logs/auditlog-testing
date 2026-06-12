@@ -5,6 +5,6 @@ int main() {
         std::cout << "This scan will fail intentionally
     
     // Deleting the return type and breaking structure
-    void* ptr = &&
+    void** ptr = &&
     return 0;
 }
