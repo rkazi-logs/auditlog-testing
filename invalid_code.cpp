@@ -1,10 +1,12 @@
 #include <iostream>
+#include <cstring>
 
 int main() {
-    // Intentional syntax error: Missing semicolon and unclosed quote
-        std::cout << "This scan will fail intentionally
+    // Buffer overflow vulnerability - CodeQL will flag this
+    char buffer[10];
+    const char* user_input = "This is a long string that will overflow the buffer";
+    strcpy(buffer, user_input);  // SECURITY: Buffer overflow
     
-    // Deleting the return type and breaking structure
-    void* = &&
+    std::cout << "Buffer: " << buffer << std::endl;
     return 0;
 }
