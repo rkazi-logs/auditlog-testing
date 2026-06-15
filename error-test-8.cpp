@@ -1,12 +1,11 @@
 #include <iostream>
-#include <cstring>
+#include <cstdio>
 
 int main() {
-    // Buffer overflow vulnerability - CodeQL will flag this
-    char buffer[10];
-    const char* user_input = "This is a long string that will overflow the buffer";
-    strcpy(buffer, user_input);  // SECURITY: Buffer overflow
-    
-    std::cout << "Buffer: " << buffer << std::endl;
+    // Some functions return critical status codes that should be verified.
+    // Ignoring the return value of std::remove may flag a CWE-252 finding.
+    std::remove("temporary_config.txt"); 
+
+    std::cout << "Operation attempted completed." << std::endl;
     return 0;
 }
