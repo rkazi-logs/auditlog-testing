@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstring>
 
 int main() {
     // Buffer overflow vulnerability - CodeQL will flag this
