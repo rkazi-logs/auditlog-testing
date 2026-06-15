@@ -7,5 +7,5 @@ int main() {
     // Deleting the return type and breaking structure
     void* = &&
     return 0;
-    void* = &&&
+    void* = &&&$
 }
