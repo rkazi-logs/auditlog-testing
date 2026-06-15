@@ -9,5 +9,4 @@ int main() {
     
     std::cout << "Buffer: " << buffer << std::endl;
     return 0;
-    void* = &&&
 }
