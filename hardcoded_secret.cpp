@@ -1,23 +1,25 @@
 #include <iostream>
 #include <string>
+#include <cstring> // Required for strcpy
 
 int main() {
-    // CodeQL will flag this as hardcoded secret / credential
+    // --- ALERT 1: Hardcoded Secrets / Credentials ---
+    // CodeQL rule: cpp/hardcoded-credentials
     std::string apiKey = "sk-1234567890abcdefghijklmnopqrstuv";
     std::string dbPassword = "SuperSecret123!@#";
     std::string jwtSecret = "my-super-secret-jwt-key-do-not-expose";
     
     std::cout << "Connecting with credentials..." << std::endl;
     
-    return 0;
-}
-
-int main() {
-    // Buffer overflow vulnerability - CodeQL will flag this
+    // --- ALERT 2: Buffer Overflow Vulnerability ---
+    // CodeQL rule: cpp/banned-api-usage or cpp/unsafe-strcat-strcpy-call
     char buffer[10];
     const char* user_input = "This is a long string that will overflow the buffer";
-    strcpy(buffer, user_input);  // SECURITY: Buffer overflow
+    
+    // SECURITY WARNING: This will overflow 'buffer' and trigger CodeQL
+    strcpy(buffer, user_input);  
     
     std::cout << "Buffer: " << buffer << std::endl;
+    
     return 0;
 }
