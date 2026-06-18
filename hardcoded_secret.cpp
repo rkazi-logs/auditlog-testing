@@ -6,7 +6,7 @@ int main() {
     // --- ALERT 1: Hardcoded Secrets / Credentials ---
     // CodeQL rule: cpp/hardcoded-credentials
     std::string apiKey = "sk-1234567890abcdefghijklmnopqrstuv";
-    std::string dbPassword = "SuperSecret123!@#";
+    std::string dbPassword = "SupereScret123!@#";
     std::string jwtSecret = "my-super-secret-jwt-key-do-not-expose";
     
     std::cout << "Connecting with credentials..." << std::endl;
